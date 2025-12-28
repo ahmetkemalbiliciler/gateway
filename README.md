@@ -39,7 +39,7 @@ gateway/
 
 ## Varsayımlar (Assumptions)
 
-1. **Sabit Kullanıcı**: Sistem tek bir kullanıcı (subscriberNo) için çalışır. Gerçek üretimde her kullanıcının kendi session'ı olurdu.
+1. **Sabit Kullanıcı**: Sistem tek bir kullanıcı (subscriberNo) için çalışır. Normalde her kullanıcının kendi session'ı olurdu.
 2. **Gemini Yanıt Formatı**: LLM'in her zaman valid JSON döneceğini varsaydık, hatalı durumlar için try-catch ekledik.
 
 
