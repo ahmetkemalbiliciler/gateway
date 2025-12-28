@@ -1,12 +1,25 @@
+**21070006001 Ahmet Kemal Biliciler**
+
 # Bill Payment Gateway - Backend API
 
-Bu proje, **AI destekli fatura ödeme chatbot sistemi** için backend gateway'idir. Üniversite dönem projesi olarak geliştirilmiştir.
+Bu proje, **AI destekli fatura ödeme chatbot sistemi** için backend gateway'idir. 
 
-## 🎯 Proje Hakkında
+##  Project Links
+
+| Link | URL |
+|------|-----|
+| **Frontend Source** | https://github.com/ahmetkemalbiliciler/client |
+| **Backend Source** | https://github.com/ahmetkemalbiliciler/gateway |
+| **Video Presentation** | [Google Drive](https://drive.google.com/file/d/1XXkXrfdhcC1uCRPc-DCDKp2_nWDKHDlW/view?usp=sharing) |
+| **Live Demo (Frontend)** | https://client-pq7g.onrender.com/ |
+| **Live Demo (Backend)** | https://gateway-77vi.onrender.com/ |
+| **API Docs (Swagger)** | https://midterm4458.onrender.com/api-docs/ |
+
+##  Proje Hakkında
 
 Bu gateway, kullanıcının doğal dil mesajlarını anlayıp, harici bir fatura sistemine (Midterm API) bağlanarak işlem yapar.
 
-## 🏗️ Mimari Tasarım (Design)
+##  Mimari Tasarım (Design)
 
 ```
 gateway/
@@ -24,14 +37,13 @@ gateway/
 - **Service Pattern**: LLM ve Bill System ayrı servisler olarak tasarlandı, böylece değiştirmesi kolay
 - **Single Responsibility**: Her dosya tek bir iş yapıyor
 
-## 🤔 Varsayımlar (Assumptions)
+## Varsayımlar (Assumptions)
 
 1. **Sabit Kullanıcı**: Sistem tek bir kullanıcı (subscriberNo) için çalışır. Gerçek üretimde her kullanıcının kendi session'ı olurdu.
-2. **Token Cache**: JWT token 1 saat geçerli kabul ettik, her istekte yeniden login yapmamak için cache'ledik.
-3. **Gemini Yanıt Formatı**: LLM'in her zaman valid JSON döneceğini varsaydık, hatalı durumlar için try-catch ekledik.
-4. **CORS Açık**: Development için tüm origin'lere izin verdik, production'da kısıtlanmalı.
+2. **Gemini Yanıt Formatı**: LLM'in her zaman valid JSON döneceğini varsaydık, hatalı durumlar için try-catch ekledik.
 
-## ⚠️ Karşılaşılan Sorunlar (Issues Encountered)
+
+## Karşılaşılan Sorunlar (Issues Encountered)
 
 1. **LLM JSON Parsing**: Gemini bazen markdown code block içinde JSON dönüyordu. Bunu temizlemek için regex kullandık:
    ```javascript
@@ -42,17 +54,11 @@ gateway/
 
 3. **Rate Limiting**: Harici API'de günlük 3 istek limiti vardı. Bu limitin aşıldığını kullanıcıya bildirmek için özel handling ekledik.
 
-4. **API 404 Hataları**: İlk başta endpoint'leri yanlış çağırdık. Dokümantasyonu tekrar okuyup doğru path'leri bulduk.
-
-## 🚀 Kurulum
+## Kurulum
 
 ```bash
 # Bağımlılıkları yükle
 npm install
-
-# .env dosyası oluştur
-cp .env.example .env
-# GEMINI_API_KEY ve diğer değişkenleri ekle
 
 # Development mode
 npm run dev
@@ -61,7 +67,7 @@ npm run dev
 npm start
 ```
 
-## 📌 Environment Variables
+## Environment Variables
 
 ```
 GEMINI_API_KEY=your_gemini_api_key
@@ -69,7 +75,7 @@ API_USERNAME=admin
 PORT=3000
 ```
 
-## 📡 API Endpoints
+## API Endpoints
 
 | Endpoint | Method | Açıklama |
 |----------|--------|----------|
@@ -78,4 +84,3 @@ PORT=3000
 
 ---
 
-*Geliştirici: Bilgisayar Mühendisliği Öğrencisi | Dönem Projesi 2024*
